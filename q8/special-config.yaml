@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  config.env: |
+    var1=val1
+    # this is a comment
+
+    var2=val2
+    #anothercomment
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: busybox-from-the-file

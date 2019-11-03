@@ -1,0 +1,1 @@
+kubectl create cm busybox-literal --from-literal foo=lala --from-literal foo2=lolo --dry-run -o yaml > config-map.yaml

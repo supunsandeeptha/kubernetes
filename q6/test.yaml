@@ -1,0 +1,31 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  labels:
+    run: busyboxcron
+  name: busyboxcron
+spec:
+  concurrencyPolicy: Allow
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+          labels:
+            run: busyboxcron
+        spec:
+          containers:
+          - image: busybox
+            name: busybox
+            command:
+            - /bin/sh
+            - -c
+            - "sleep 3600;"
+            - "echo 'Hello from the kubernetes';"
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: '*/1 * * * *'
+status: {}
